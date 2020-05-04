@@ -7,12 +7,3 @@
     <a href="{{site.resume}}" target="_blank" class="arrow-link">View My Resume</a>
   </div>
 </section>
-<script>
-  $(function() {
-    collection.doc("about_me").get().then(function(doc) {
-      doc.get("education").forEach((item, i) => {
-        $("#education").append('<div class="job"><div class="time-place"><div class="job__company">' + item.place + '</div><div class="job__time">' + item.time + '</div></div><div class="job__position">' + item.type + ' - ' + item.field + '</div></div>');
-      });
-    });
-  });
-</script>

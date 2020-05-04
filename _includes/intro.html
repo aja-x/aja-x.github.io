@@ -4,7 +4,7 @@
   </h1>
 
   <h2 class="intro__tagline">I'm
-    <span class="name" id="name"></span>
+    <span class="name" id="name"></span>,&nbsp
     <span id="short_desc"></span>
     <span class="emoji ideogram"></span>
   </h2>
@@ -17,17 +17,3 @@
     </span>
   </h3>
 </header>
-<script>
-  collection.doc("about_me").get().then(function(doc) {
-    $(function(){
-      $("#name").text(doc.get("name"));
-      $("#short_desc").text(doc.get("short_desc"));
-    });
-  });
-  collection.doc("account").get().then(function(doc) {
-    $(function(){
-      $(".email_account").attr("href", "mailto:" + doc.get("email"));
-      $(".email_account").text(doc.get("email"));
-    });
-  });
-</script>

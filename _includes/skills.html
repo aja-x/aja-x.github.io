@@ -25,18 +25,3 @@
     </div>
   </div>
 </section>
-<script>
-  collection.doc("skills").get().then(function(doc) {
-    $(function() {
-      appendItem("#language_skills ul", doc.get("languages"));
-      appendItem("#framework_skills ul", doc.get("frameworks"));
-      appendItem("#tools_skills ul", doc.get("tools"));
-      appendItem("#interest_skills ul", doc.get("interests"));
-      function appendItem(id, items) {
-        items.forEach(function(item) {
-          $(id).append('<li class="skillz__category__item">' + item + '</li>');
-        });
-      }
-    });
-  });
-</script>

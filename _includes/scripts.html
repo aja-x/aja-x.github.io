@@ -1,6 +1,46 @@
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' type="text/javascript" charset="utf-8"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
 <script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyDX07t4CpNws1cYLTgk9PQBe9z8POk1woc",
+        authDomain: "aja-x-github-io-c48e4.firebaseapp.com",
+        databaseURL: "https://aja-x-github-io-c48e4.firebaseio.com",
+        projectId: "aja-x-github-io-c48e4",
+        storageBucket: "aja-x-github-io-c48e4.appspot.com",
+        messagingSenderId: "489119136835",
+        appId: "1:489119136835:web:3a164a95755ff1ace1e8f6",
+        measurementId: "G-8LMB80VQZK"
+    };
+
+    firebase.initializeApp(firebaseConfig);
     firebase.analytics();
+
+    var db = firebase.firestore();
+    var collection = db.collection("aja-x.github.io");
+        collection.doc("about_me").get().then(function(doc) {
+            $("#name").text(doc.get("name"));
+            $("#short_desc").text(doc.get("short_desc"));
+            doc.get("education").forEach((item, i) => {
+              $("#education").append('<div class="job"><div class="time-place"><div class="job__company">' + item.place + '</div><div class="job__time">' + item.time + '</div></div><div class="job__position">' + item.type + ' - ' + item.field + '</div></div>');
+            });
+        });
+        collection.doc("account").get().then(function(doc) {
+            $(".email_account").attr("href", "mailto:" + doc.get("email"));
+            $(".email_account").text(doc.get("email"));
+        });
+        collection.doc("skills").get().then(function(doc) {
+            appendItem("#language_skills ul", doc.get("languages"));
+            appendItem("#framework_skills ul", doc.get("frameworks"));
+            appendItem("#tools_skills ul", doc.get("tools"));
+            appendItem("#interest_skills ul", doc.get("interests"));
+            function appendItem(id, items) {
+                items.forEach(function(item) {
+                    $(id).append('<li class="skillz__category__item">' + item + '</li>');
+                });
+            }
+        });
 </script>
