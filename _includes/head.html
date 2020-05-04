@@ -14,7 +14,7 @@
 <meta property="og:image:type" content="image/png" />
 <meta property="og:locale" content="en_US">
 <meta name="description" content="{{site.description}}">
-<meta name="keywords" content="design, development, web, bchiang7, brittany, chiang, javascript, northeastern">
+<meta name="keywords" content="software, architecture, development, web, aja-x, ahmad, jarir, devops, devops toolchain, indonesia, surabaya">
 <meta name="google-site-verification" content="DCl7VAf9tcz6eD9gb67NfkNnJ1PKRNcg8qQiwpbx9Lk" />
 <meta itemprop="name" content="{{site.title}}">
 <meta itemprop="description" content="{{site.description}}">
@@ -28,3 +28,24 @@
 <meta name="twitter:image:src" content="{{site.cover}}">
 <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
 <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css" hreflang="en-us">
+
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+<script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyDX07t4CpNws1cYLTgk9PQBe9z8POk1woc",
+    authDomain: "aja-x-github-io-c48e4.firebaseapp.com",
+    databaseURL: "https://aja-x-github-io-c48e4.firebaseio.com",
+    projectId: "aja-x-github-io-c48e4",
+    storageBucket: "aja-x-github-io-c48e4.appspot.com",
+    messagingSenderId: "489119136835",
+    appId: "1:489119136835:web:3a164a95755ff1ace1e8f6",
+    measurementId: "G-8LMB80VQZK"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    var db = firebase.firestore();
+    var collection = db.collection("aja-x.github.io");
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' type="text/javascript" charset="utf-8"></script>
